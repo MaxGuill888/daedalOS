@@ -49,6 +49,7 @@ import {
   isGlobalMusicVisualizationRunning,
   parseBgPosition,
   preloadImage,
+  publicAssetPath,
 } from "utils/functions";
 
 let slideshowFiles: Record<string, string[]> = {};
@@ -370,7 +371,7 @@ const useWallpaper = (
         if (nextWallpaper) {
           preloadImage(
             nextWallpaper.startsWith("/")
-              ? `${window.location.origin}${nextWallpaper}`
+              ? `${window.location.origin}${publicAssetPath(nextWallpaper)}`
               : nextWallpaper,
             PRELOAD_ID,
             true,
@@ -379,7 +380,7 @@ const useWallpaper = (
         }
 
         if (wallpaperUrl.startsWith("/")) {
-          wallpaperUrl = `${window.location.origin}${wallpaperUrl}`;
+          wallpaperUrl = `${window.location.origin}${publicAssetPath(wallpaperUrl)}`;
         }
       } while (
         currentWallpaperUrl === wallpaperUrl &&

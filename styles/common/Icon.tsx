@@ -187,7 +187,9 @@ const Icon: FCWithRef<
         onError={onError}
         onLoad={onLoad}
         src={
-          isDynamic ? imageSrc(imgSrc, imgSize, 1, srcExt) : src || undefined
+          isDynamic
+            ? imageSrc(imgSrc, imgSize, 1, srcExt)
+            : publicSrc || undefined
         }
         srcSet={
           !singleSrc && isDynamic

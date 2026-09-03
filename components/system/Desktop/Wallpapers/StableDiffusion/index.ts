@@ -1,6 +1,6 @@
 import { type StableDiffusionConfig } from "components/apps/StableDiffusion/types";
 import { type WallpaperConfig } from "components/system/Desktop/Wallpapers/types";
-import { loadFiles } from "utils/functions";
+import { loadFiles, publicAssetPath } from "utils/functions";
 
 export const libs = [
   "/System/tvm/tvmjs_runtime.wasi.js",
@@ -31,7 +31,9 @@ export const runStableDiffusion = async (
     return new globalThis.Tokenizer.TokenizerWasm(
       await (
         await fetch(
-          "/Program Files/StableDiffusion/tokenizers-wasm/tokenizer.json"
+          publicAssetPath(
+            "/Program Files/StableDiffusion/tokenizers-wasm/tokenizer.json"
+          )
         )
       ).text()
     );

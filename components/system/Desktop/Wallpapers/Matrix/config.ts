@@ -1,4 +1,4 @@
-import { viewWidth } from "utils/functions";
+import { publicAssetPath, viewWidth } from "utils/functions";
 
 const config = {
   animationSpeed: 1,
@@ -24,7 +24,9 @@ const config = {
   glintContrast: 2.5,
   glyphEdgeCrop: 0,
   glyphHeightToWidth: 1,
-  glyphMSDFURL: "/System/Matrix/assets/matrixcode_msdf.png",
+  glyphMSDFURL: publicAssetPath(
+    "/System/Matrix/assets/matrixcode_msdf.png"
+  ),
   glyphSequenceLength: 57,
   glyphTextureGridSize: [8, 8],
   glyphVerticalSpacing: 1,

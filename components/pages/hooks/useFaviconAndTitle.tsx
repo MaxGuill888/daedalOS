@@ -12,6 +12,7 @@ import {
   getDpi,
   getExtension,
   getMimeType,
+  publicAssetPath,
 } from "utils/functions";
 
 const { alias } = PACKAGE_DATA;
@@ -31,7 +32,7 @@ export const useFaviconAndTitle = (): {
   const resetFaviconAndTitle = useCallback((): void => {
     setTitle(alias);
     setFavIcon((currentFavicon) =>
-      currentFavicon ? FAVICON_BASE_PATH : currentFavicon
+      currentFavicon ? publicAssetPath(FAVICON_BASE_PATH) : currentFavicon
     );
   }, []);
   const Favicon = useMemo(() => {
@@ -40,7 +41,7 @@ export const useFaviconAndTitle = (): {
 
     const current = isDynamicIcon(favIcon)
       ? imageSrc(favIcon, 16, getDpi(), getExtension(favIcon)).split(" ")[0]
-      : favIcon;
+      : publicAssetPath(favIcon);
 
     return <link href={current} rel="icon" type={getMimeType(current)} />;
   }, [favIcon]);
@@ -51,7 +52,10 @@ export const useFaviconAndTitle = (): {
 
       if (title !== documentTitle) setTitle(documentTitle);
       if (favIcon !== processIcon || !favIcon) {
-        setFavIcon(encodeURI(processIcon) || FAVICON_BASE_PATH);
+        setFavIcon(
+          publicAssetPath(encodeURI(processIcon)) ||
+            publicAssetPath(FAVICON_BASE_PATH)
+        );
       }
     } else {
       resetFaviconAndTitle();

@@ -1,4 +1,4 @@
-import { loadFiles } from "utils/functions";
+import { loadFiles, publicAssetPath } from "utils/functions";
 
 declare global {
   interface Window {
@@ -7,7 +7,7 @@ declare global {
   }
 }
 
-export const ROOT_PATH = "/System/Hexells";
+export const ROOT_PATH = publicAssetPath("/System/Hexells");
 
 export const libs = [
   `${ROOT_PATH}/twgl.min.js`,

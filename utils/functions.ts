@@ -36,7 +36,9 @@ export const bufferToUrl = (buffer: Buffer, mimeType?: string): string =>
 export const publicAssetPath = (assetPath: string): string => {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
-  return basePath && assetPath.startsWith("/") && !assetPath.startsWith(`${basePath}/`)
+  return basePath &&
+    assetPath.startsWith("/") &&
+    !assetPath.startsWith(`${basePath}/`)
     ? `${basePath}${assetPath}`
     : assetPath;
 };
@@ -346,7 +348,7 @@ const loadScript = (
     if (defer) script.defer = true;
     if (asModule) script.type = "module";
     script.fetchPriority = "high";
-    script.src = src;
+    script.src = publicAssetPath(src);
     script.addEventListener("error", reject, ONE_TIME_PASSIVE_EVENT);
     script.addEventListener("load", resolve, ONE_TIME_PASSIVE_EVENT);
 
@@ -371,7 +373,7 @@ const loadStyle = (
 
     link.rel = "stylesheet";
     link.fetchPriority = "high";
-    link.href = href;
+    link.href = publicAssetPath(href);
     link.addEventListener("error", reject, ONE_TIME_PASSIVE_EVENT);
     link.addEventListener("load", resolve, ONE_TIME_PASSIVE_EVENT);
 

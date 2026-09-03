@@ -9,6 +9,7 @@ import {
   getMimeType,
   imageSrcs,
   isDynamicIcon,
+  publicAssetPath,
 } from "utils/functions";
 
 const { alias, author, description } = PACKAGE_DATA;
@@ -23,7 +24,9 @@ const PreloadIcons = memo(() =>
       <link
         key={icon}
         as="image"
-        href={dynamicIcon || isSubIcon ? undefined : icon}
+        href={
+          dynamicIcon || isSubIcon ? undefined : publicAssetPath(icon)
+        }
         imageSrcSet={
           dynamicIcon
             ? imageSrcs(icon, 48, extension)
