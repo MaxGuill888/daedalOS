@@ -98,13 +98,20 @@ const Icon: FCWithRef<
   ...componentProps
 }) => {
   const [loaded, setLoaded] = useState(false);
-  const isDynamic = isDynamicIcon(src);
+  const publicSrc = useMemo(() => {
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+    return basePath && src.startsWith("/") && !src.startsWith(`${basePath}/`)
+      ? `${basePath}${src}`
+      : src;
+  }, [src]);
+  const isDynamic = isDynamicIcon(publicSrc);
   const imgSrc = useMemo(
     () =>
       isDynamic && !supportsWebp()
-        ? src.replace(getExtension(src), ".png")
-        : src,
-    [isDynamic, src]
+        ? publicSrc.replace(getExtension(publicSrc), ".png")
+        : publicSrc,
+    [isDynamic, publicSrc]
   );
   const srcExt = getExtension(imgSrc);
   const dimensionProps = useMemo(() => {
