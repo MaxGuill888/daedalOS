@@ -13,8 +13,10 @@ const StyledSidebar = styled.nav`
   width: ${({ theme }) => theme.sizes.startMenu.sideBar.width}px;
   z-index: 1;
 
+  border-right: 1px solid hsl(0 0% 100% / 6%);
+
   &:hover:not(&.collapsed) {
-    background-color: hsl(0 0% 10% / 95%);
+    background-color: hsl(0 0% 8% / 82%);
     box-shadow: 8px 0 5px -5px hsl(0 0% 10% / 50%);
     transition:
       all 300ms ease,
@@ -29,7 +31,7 @@ const StyledSidebar = styled.nav`
     &::before {
       backdrop-filter: ${({ theme }) =>
         `blur(${theme.sizes.taskbar.panelBlur})`};
-      background-color: hsl(0 0% 10% / 50%);
+      background-color: hsl(0 0% 8% / 68%);
       content: "";
       height: 100%;
       margin-top: -4px;

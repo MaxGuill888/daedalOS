@@ -3,8 +3,8 @@ const sizes = {
     maxHeight: 357,
   },
   clock: {
-    fontSize: "12px",
-    padding: 5,
+    fontSize: "16px",
+    padding: 14,
   },
   contextMenu: {
     subMenuOffset: 3,
@@ -44,24 +44,24 @@ const sizes = {
     size: 600,
   },
   startMenu: {
-    maxHeight: 390,
+    maxHeight: 680,
     sideBar: {
-      buttonHeight: 48,
-      expandedWidth: "228px",
-      iconSize: "16px",
-      width: 48,
+      buttonHeight: 56,
+      expandedWidth: "250px",
+      iconSize: "20px",
+      width: 64,
     },
-    size: 320,
+    size: 650,
   },
   taskbar: {
     ai: {
       buttonWidth: "40px",
       chatWidth: 415,
     },
-    blur: "5px",
+    blur: "18px",
     button: {
-      iconSize: "15px",
-      width: 36,
+      iconSize: "22px",
+      width: 64,
     },
     entry: {
       borderSize: "2px",
@@ -78,9 +78,9 @@ const sizes = {
   },
   titleBar: {
     buttonIconWidth: "10px",
-    buttonWidth: "45px",
-    fontSize: "12px",
-    height: 30,
+    buttonWidth: "52px",
+    fontSize: "13px",
+    height: 42,
     iconMarginRight: "4px",
     iconSize: "16px",
   },

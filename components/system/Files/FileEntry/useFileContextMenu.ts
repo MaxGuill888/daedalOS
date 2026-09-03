@@ -233,7 +233,7 @@ const useFileContextMenu = (
                     ? [
                         {
                           action: () => mapFileSystemDirectory("/"),
-                          label: "Map directory",
+                          label: "Connect device folder",
                         },
                       ]
                     : []),

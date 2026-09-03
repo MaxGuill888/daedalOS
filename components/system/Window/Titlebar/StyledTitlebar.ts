@@ -1,25 +1,18 @@
-import styled, { type DefaultTheme } from "styled-components";
+import styled from "styled-components";
 
 type StyledTitlebarProps = {
   $foreground: boolean;
 };
 
-const styledBorder = ({
-  $foreground,
-  theme,
-}: StyledTitlebarProps & { theme: DefaultTheme }): string =>
-  $foreground
-    ? `1px solid ${theme.colors.titleBar.background}`
-    : `1px solid ${theme.colors.titleBar.backgroundInactive}`;
-
 const StyledTitlebar = styled.header<StyledTitlebarProps>`
-  background-color: ${({ $foreground, theme }) =>
+  background: ${({ $foreground }) =>
     $foreground
-      ? theme.colors.titleBar.background
-      : theme.colors.titleBar.backgroundInactive};
-  border-bottom: ${styledBorder};
+      ? "linear-gradient(180deg, hsl(0 0% 18% / 98%), hsl(0 0% 12% / 98%))"
+      : "linear-gradient(180deg, hsl(0 0% 15% / 98%), hsl(0 0% 10% / 98%))"};
+  border-bottom: 1px solid hsl(0 0% 100% / 10%);
   display: flex;
   height: ${({ theme }) => theme.sizes.titleBar.height}px;
+  min-height: ${({ theme }) => theme.sizes.titleBar.height}px;
   position: relative;
   top: 0;
   z-index: 2;
@@ -68,12 +61,15 @@ const StyledTitlebar = styled.header<StyledTitlebarProps>`
     display: flex;
 
     button {
-      border-left: ${styledBorder};
-      box-sizing: content-box;
+      border: 0;
+      border-radius: 10px;
       display: flex;
+      height: calc(100% - 10px);
+      margin: 5px 3px;
       place-content: center;
       place-items: center;
-      width: ${({ theme }) => theme.sizes.titleBar.buttonWidth};
+      transition: background-color 150ms ease, transform 150ms ease;
+      width: ${({ theme }) => `calc(${theme.sizes.titleBar.buttonWidth} - 6px)`};
 
       svg {
         fill: ${({ $foreground, theme }) =>
@@ -92,24 +88,24 @@ const StyledTitlebar = styled.header<StyledTitlebarProps>`
       }
 
       &:hover {
-        background-color: ${({ theme }) =>
-          theme.colors.titleBar.backgroundHover};
+        background-color: hsl(0 0% 100% / 12%);
 
         svg {
           fill: ${({ theme }) => theme.colors.titleBar.text};
         }
 
         &.close {
-          background-color: ${({ theme }) => theme.colors.titleBar.closeHover};
+          background-color: hsl(0 72% 48% / 90%);
           transition: background-color 0.25s ease;
         }
       }
 
       &:active {
-        background-color: rgb(51 51 51);
+        background-color: hsl(0 0% 100% / 20%);
+        transform: scale(0.94);
 
         &.close {
-          background-color: rgb(139 10 20);
+          background-color: hsl(0 72% 36% / 95%);
         }
       }
 

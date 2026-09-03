@@ -344,7 +344,7 @@ const useFolderContextMenu = (
               .catch(() => {
                 // Ignore failure to map
               }),
-          label: "Map directory",
+          label: "Connect device folder",
         };
         const FS_COMMANDS = [
           ADD_FILE,

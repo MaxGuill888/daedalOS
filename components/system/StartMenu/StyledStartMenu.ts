@@ -18,6 +18,12 @@ const StyledStartMenu = styled(motion.section)<StyledStartMenuProps>`
     TaskbarPanel(theme.sizes.startMenu.maxHeight, theme.sizes.startMenu.size)}
 
   backdrop-filter: ${({ theme }) => `blur(${theme.sizes.taskbar.panelBlur})`};
+  border: 1px solid hsl(0 0% 100% / 8%);
+  border-radius: 24px;
+  bottom: 12px;
+  box-shadow: 0 22px 60px hsl(0 0% 0% / 55%);
+  left: 10px;
+  overflow: hidden;
 
   ${StyledFileManager} {
     ${ScrollBars(THIN_SCROLLBAR_WIDTH, -2, -1)};
@@ -26,7 +32,7 @@ const StyledStartMenu = styled(motion.section)<StyledStartMenuProps>`
     padding-bottom: ${({ theme }) =>
       theme.sizes.startMenu.sideBar.buttonHeight / 2}px;
     padding-left: ${({ theme }) => theme.sizes.startMenu.sideBar.width}px;
-    padding-top: 7px;
+    padding-top: 14px;
 
     ${StyledFileEntry} {
       width: ${({ theme }) =>

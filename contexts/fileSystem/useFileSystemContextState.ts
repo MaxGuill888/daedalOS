@@ -375,9 +375,14 @@ const useFileSystemContextState = (): {
               }
 
               const systemDirectory = SYSTEM_DIRECTORIES.has(directory);
-              const mappedName =
-                removeInvalidFilenameCharacters(handle.name).trim() ||
-                (systemDirectory ? "" : DEFAULT_MAPPED_NAME);
+              const directoryName = removeInvalidFilenameCharacters(
+                handle.name
+              ).trim();
+              const mappedName = systemDirectory
+                ? ""
+                : directoryName
+                  ? `PC - ${directoryName}`
+                  : DEFAULT_MAPPED_NAME;
               const mappedPath = join(directory, mappedName);
 
               rootFs?.mount?.(mappedPath, newFs);

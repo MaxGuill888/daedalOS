@@ -7,11 +7,12 @@ const TaskbarPanel = (
   left = 0,
   hasBorder = false
 ): RuleSet<object> => css`
-  background-color: hsl(0 0% 13% / 95%);
+  background-color: hsl(0 0% 18% / 88%);
   border: ${hasBorder ? "1px solid hsla(0, 0%, 25%, 75%)" : "none"};
   border-bottom-width: 0;
   bottom: ${TASKBAR_HEIGHT}px;
-  box-shadow: 3px 0 10px 3px hsl(0 0% 10% / 50%);
+  border-radius: 22px;
+  box-shadow: 0 18px 45px hsl(0 0% 0% / 45%);
   contain: strict;
   display: flex;
   height: 100%;
@@ -23,7 +24,7 @@ const TaskbarPanel = (
   z-index: 10000;
 
   @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-    background-color: hsl(0 0% 13% / 70%);
+    background-color: hsl(0 0% 22% / 72%);
   }
 `;
 
