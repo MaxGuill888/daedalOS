@@ -1,5 +1,5 @@
 window.DXBall = {
-  basePath: "/Program Files/DX-Ball",
+  basePath: `${window.location.pathname.split("/")[1] ? `/${window.location.pathname.split("/")[1]}` : ""}/Program Files/DX-Ball`,
   calcRecords: ({ name, score }) => window.DXBall.saveRecords?.(name, score),
   intervals: [],
   timeouts: [],

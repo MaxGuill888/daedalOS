@@ -13,6 +13,7 @@ import {
   imageSrc,
   imageSrcs,
   isDynamicIcon,
+  publicAssetPath,
   supportsWebp,
 } from "utils/functions";
 
@@ -98,13 +99,7 @@ const Icon: FCWithRef<
   ...componentProps
 }) => {
   const [loaded, setLoaded] = useState(false);
-  const publicSrc = useMemo(() => {
-    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
-    return basePath && src.startsWith("/") && !src.startsWith(`${basePath}/`)
-      ? `${basePath}${src}`
-      : src;
-  }, [src]);
+  const publicSrc = useMemo(() => publicAssetPath(src), [src]);
   const isDynamic = isDynamicIcon(publicSrc);
   const imgSrc = useMemo(
     () =>

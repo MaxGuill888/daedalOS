@@ -193,7 +193,7 @@ const StyledVideoPlayer = styled.div`
     }
 
     video {
-      background-image: url("/System/Icons/48x48/vlc.webp");
+      background-image: url("${process.env.NEXT_PUBLIC_BASE_PATH || ""}/System/Icons/48x48/vlc.webp");
       background-position: center calc(50% - 15px);
       background-repeat: no-repeat;
       padding-bottom: ${CONTROL_BAR_HEIGHT}px;

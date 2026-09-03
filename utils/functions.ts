@@ -33,6 +33,14 @@ export const bufferToUrl = (buffer: Buffer, mimeType?: string): string =>
     ? `data:${mimeType};base64,${window.btoa(buffer.toString())}`
     : URL.createObjectURL(bufferToBlob(buffer, mimeType));
 
+export const publicAssetPath = (assetPath: string): string => {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+  return basePath && assetPath.startsWith("/") && !assetPath.startsWith(`${basePath}/`)
+    ? `${basePath}${assetPath}`
+    : assetPath;
+};
+
 const RESIZE_IMAGE_TIMEOUT_SECONDS = 60;
 
 export const resizeImage = async (
