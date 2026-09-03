@@ -2,7 +2,7 @@ name: Tests
 
 on:
   push:
-    branches: [main]
+    branches: [main, main-v2]
   workflow_dispatch:
 
 jobs:
@@ -32,7 +32,7 @@ jobs:
           retention-days: 30
 
   deploy:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/main-v2'
     permissions:
       contents: read
       pages: write

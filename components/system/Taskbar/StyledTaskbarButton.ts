@@ -11,6 +11,7 @@ const StyledTaskbarButton = styled(Button)<StyledTaskbarButtonProps>`
   background-color: ${({ $active, $highlight, theme }) =>
     $active &&
     ($highlight ? theme.colors.taskbar.foreground : "hsla(0, 0%, 25%, 50%)")};
+  border-radius: 50%;
   display: flex;
   fill: ${({ theme }) => theme.colors.taskbar.button.color};
   height: 100%;
@@ -27,6 +28,13 @@ const StyledTaskbarButton = styled(Button)<StyledTaskbarButtonProps>`
     height: ${({ theme }) => theme.sizes.taskbar.button.iconSize};
   }
 
+  img {
+    border-radius: 50%;
+    height: 30px;
+    object-fit: cover;
+    width: 30px;
+  }
+
   &:hover {
     background-color: ${({ $active, theme }) =>
       $active ? theme.colors.taskbar.foreground : theme.colors.taskbar.hover};
@@ -35,6 +43,14 @@ const StyledTaskbarButton = styled(Button)<StyledTaskbarButtonProps>`
       fill: ${({ $highlight, theme }) =>
         $highlight ? theme.colors.highlight : undefined};
     }
+  }
+
+  &:first-child {
+    height: calc(100% - 12px);
+    margin: 6px;
+    width: calc(
+      ${({ theme }) => theme.sizes.taskbar.button.width}px - 12px
+    ) !important;
   }
 
   &:active {

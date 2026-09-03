@@ -1,5 +1,11 @@
 ## 🌌 **daedalOS** 🌌
 
+### Live version
+
+The published OS is available at https://maxguill888.github.io/daedalOS/.
+GitHub Pages must use **GitHub Actions** as its source in the repository's
+Pages settings.
+
 ## _Desktop environment in the browser_
 
 ![Screenshot](https://raw.githubusercontent.com/DustinBrett/daedalOS/refs/heads/main/public/screenshot.png?raw=true)
